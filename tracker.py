@@ -16,3 +16,13 @@ def load_data(file_path: Path) -> Dict:
         return json.load(f)
 
 
+def save_data(file_path: Path, data: Dict) -> None:
+    with open(file_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2)
+
+
+def add_expense(data: Dict, amount: float, category: str, note: str) -> None:
+    if amount <= 0:
+        print("amount must be bigger than 0")
+        return
+    item = {
