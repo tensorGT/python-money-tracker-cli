@@ -26,3 +26,12 @@ def add_expense(data: Dict, amount: float, category: str, note: str) -> None:
         print("amount must be bigger than 0")
         return
     item = {
+        "amount": round(amount, 2),
+        "category": category.strip().lower(),
+        "note": note.strip(),
+        "time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+    }
+    data["items"].append(item)
+    print("saved! spent %.2f on %s" % (item["amount"], item["category"]))
+
+
