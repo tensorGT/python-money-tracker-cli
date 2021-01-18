@@ -35,3 +35,13 @@ def add_expense(data: Dict, amount: float, category: str, note: str) -> None:
     print("saved! spent %.2f on %s" % (item["amount"], item["category"]))
 
 
+def set_budget(data: Dict, new_budget: float) -> None:
+    if new_budget < 0:
+        print("budget cannot be minus")
+        return
+    data["budget"] = round(new_budget, 2)
+    print("ok budget is now %.2f" % data["budget"])
+
+
+def get_category_totals(items: List[Dict]) -> Dict[str, float]:
+    totals: Dict[str, float] = {}
