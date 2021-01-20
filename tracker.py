@@ -45,3 +45,12 @@ def set_budget(data: Dict, new_budget: float) -> None:
 
 def get_category_totals(items: List[Dict]) -> Dict[str, float]:
     totals: Dict[str, float] = {}
+    for it in items:
+        cat = it["category"]
+        totals[cat] = totals.get(cat, 0.0) + float(it["amount"])
+    return totals
+
+
+def show_summary(data: Dict, month_filter: Optional[str] = None) -> None:
+    items = data["items"]
+    if month_filter:
