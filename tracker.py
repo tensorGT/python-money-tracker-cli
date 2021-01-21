@@ -54,3 +54,13 @@ def get_category_totals(items: List[Dict]) -> Dict[str, float]:
 def show_summary(data: Dict, month_filter: Optional[str] = None) -> None:
     items = data["items"]
     if month_filter:
+        items = [x for x in items if x["time"].startswith(month_filter)]
+
+    totals = get_category_totals(items)
+    spent = sum(totals.values())
+    left = data["budget"] - spent
+
+    print("=== My Spend Summary ===")
+    if month_filter:
+        print("Month:", month_filter)
+    print("Total Budget : %.2f" % data["budget"])

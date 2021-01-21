@@ -5,3 +5,4 @@ sory if code is little messy, i am still learning python file handling and json.
 
 ## what it can do
 - add expense with category, amount, note and time
+- set your budget
