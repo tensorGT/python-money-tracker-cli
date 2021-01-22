@@ -64,3 +64,12 @@ def show_summary(data: Dict, month_filter: Optional[str] = None) -> None:
     if month_filter:
         print("Month:", month_filter)
     print("Total Budget : %.2f" % data["budget"])
+    print("Total Spent  : %.2f" % spent)
+    print("Money Left   : %.2f" % left)
+    print("\nBy Category:")
+    if not totals:
+        print("  nothing here yet")
+    for cat, val in sorted(totals.items()):
+        print("  - %-12s : %.2f" % (cat, val))
+
+
