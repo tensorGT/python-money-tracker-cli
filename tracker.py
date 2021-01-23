@@ -73,3 +73,12 @@ def show_summary(data: Dict, month_filter: Optional[str] = None) -> None:
         print("  - %-12s : %.2f" % (cat, val))
 
 
+def export_csv(data: Dict, out_path: Path, month_filter: Optional[str] = None) -> None:
+    items = data["items"]
+    if month_filter:
+        items = [x for x in items if x["time"].startswith(month_filter)]
+
+    with open(out_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["time", "category", "amount", "note"])
+        for it in items:

@@ -7,3 +7,4 @@ sory if code is little messy, i am still learning python file handling and json.
 - add expense with category, amount, note and time
 - set your budget
 - show how much you spend per category and how much money left
+- export to csv file or monthly json summary
