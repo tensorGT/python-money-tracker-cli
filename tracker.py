@@ -82,3 +82,13 @@ def export_csv(data: Dict, out_path: Path, month_filter: Optional[str] = None) -
         writer = csv.writer(f)
         writer.writerow(["time", "category", "amount", "note"])
         for it in items:
+            writer.writerow([it["time"], it["category"], it["amount"], it["note"]])
+    print("exported %d rows to %s" % (len(items), out_path))
+
+
+def export_monthly_report(data: Dict, month: str, out_path: Path) -> None:
+    items = [x for x in data["items"] if x["time"].startswith(month)]
+    totals = get_category_totals(items)
+    spent = sum(totals.values())
+    report = {
+        "month": month,
