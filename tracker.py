@@ -92,3 +92,12 @@ def export_monthly_report(data: Dict, month: str, out_path: Path) -> None:
     spent = sum(totals.values())
     report = {
         "month": month,
+        "budget": data["budget"],
+        "total_spent": round(spent, 2),
+        "remaining": round(data["budget"] - spent, 2),
+        "categories": {k: round(v, 2) for k, v in totals.items()},
+        "count": len(items),
+    }
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(report, f, indent=2)
+    print("monthly summary saved to", out_path)
