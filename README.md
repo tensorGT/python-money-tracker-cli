@@ -11,3 +11,4 @@ sory if code is little messy, i am still learning python file handling and json.
 
 ## how to use
 ```bash
+python tracker.py budget 600

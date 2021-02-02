@@ -101,3 +101,13 @@ def export_monthly_report(data: Dict, month: str, out_path: Path) -> None:
     with open(out_path, "w", encoding="utf-8") as f:
         json.dump(report, f, indent=2)
     print("monthly summary saved to", out_path)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description="simple money tracker in terminal")
+    parser.add_argument("--file", default=str(DATA_FILE), help="json file for save data")
+    sub = parser.add_subparsers(dest="cmd")
+
+    p_add = sub.add_parser("add", help="add new spend")
+    p_add.add_argument("amount", type=float)
+    p_add.add_argument("category", type=str)
