@@ -12,3 +12,4 @@ sory if code is little messy, i am still learning python file handling and json.
 ## how to use
 ```bash
 python tracker.py budget 600
+python tracker.py add 12.50 food --note "lunch sandwich"

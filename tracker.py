@@ -111,3 +111,12 @@ def main() -> None:
     p_add = sub.add_parser("add", help="add new spend")
     p_add.add_argument("amount", type=float)
     p_add.add_argument("category", type=str)
+    p_add.add_argument("--note", default="", type=str)
+
+    p_budget = sub.add_parser("budget", help="change monthly budget")
+    p_budget.add_argument("amount", type=float)
+
+    p_sum = sub.add_parser("summary", help="show total and left money")
+    p_sum.add_argument("--month", default=None, help="like YYYY-MM")
+
+    p_csv = sub.add_parser("export-csv", help="save rows to csv")
