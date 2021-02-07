@@ -120,3 +120,13 @@ def main() -> None:
     p_sum.add_argument("--month", default=None, help="like YYYY-MM")
 
     p_csv = sub.add_parser("export-csv", help="save rows to csv")
+    p_csv.add_argument("--out", default="expenses.csv")
+    p_csv.add_argument("--month", default=None)
+
+    p_rep = sub.add_parser("monthly", help="export monthly summary json")
+    p_rep.add_argument("month", help="format YYYY-MM")
+    p_rep.add_argument("--out", default="monthly_summary.json")
+
+    args = parser.parse_args()
+    data_path = Path(args.file)
+    data = load_data(data_path)
