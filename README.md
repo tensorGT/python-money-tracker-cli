@@ -14,3 +14,4 @@ sory if code is little messy, i am still learning python file handling and json.
 python tracker.py budget 600
 python tracker.py add 12.50 food --note "lunch sandwich"
 python tracker.py summary
+python tracker.py export-csv --out my_spend.csv

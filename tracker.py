@@ -130,3 +130,12 @@ def main() -> None:
     args = parser.parse_args()
     data_path = Path(args.file)
     data = load_data(data_path)
+
+    if args.cmd == "add":
+        add_expense(data, args.amount, args.category, args.note)
+        save_data(data_path, data)
+    elif args.cmd == "budget":
+        set_budget(data, args.amount)
+        save_data(data_path, data)
+    elif args.cmd == "summary":
+        show_summary(data, args.month)
