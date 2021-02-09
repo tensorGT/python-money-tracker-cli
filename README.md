@@ -15,3 +15,5 @@ python tracker.py budget 600
 python tracker.py add 12.50 food --note "lunch sandwich"
 python tracker.py summary
 python tracker.py export-csv --out my_spend.csv
+python tracker.py monthly 2021-01 --out jan_report.json
+```

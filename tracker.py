@@ -139,3 +139,13 @@ def main() -> None:
         save_data(data_path, data)
     elif args.cmd == "summary":
         show_summary(data, args.month)
+    elif args.cmd == "export-csv":
+        export_csv(data, Path(args.out), args.month)
+    elif args.cmd == "monthly":
+        export_monthly_report(data, args.month, Path(args.out))
+    else:
+        parser.print_help()
+
+
+if __name__ == "__main__":
+    main()
